@@ -1,0 +1,21 @@
+.products-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+li {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+li:before {
+  content: "• ";
+}

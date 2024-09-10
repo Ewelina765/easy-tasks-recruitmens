@@ -28,11 +28,43 @@ const Form = ({ setProducts }) => {
     setPrice(0);
   };
 
+  // const [formState, setFormState] = useState({
+  //   inputText: "",
+  //   amount: "",
+  //   price: ""
+  // });
+
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormState((prev) => ({
+  //     ...prev,
+  //     [name]: value
+  //   }));
+  // };
+
+  // const addProduct = () => {
+  //   setProducts((prev) => [
+  //     ...prev,
+  //     {
+  //       name: formState.inputText,
+  //       amount: Number(formState.amount),
+  //       price: Number(formState.price)
+  //     }
+  //   ]);
+  //   // Reset form state
+  //   setFormState({
+  //     inputText: "",
+  //     amount: "",
+  //     price: ""
+  //   });
+  // };
+
   return (
     <div className="form-container">
       <div className="input-container">
         <label>Product's name</label>
         <input
+          name="inputText"
           value={inputText}
           type="text"
           placeholder="nazwa produktu"
@@ -57,7 +89,6 @@ const Form = ({ setProducts }) => {
           onChange={changePrice}
         />
       </div>
-
       <button onClick={addProduct}>Dodaj produkt</button>
     </div>
   );

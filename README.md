@@ -1,6 +1,6 @@
 # Hello
 
-I represent easy tasks for recruitments.
+I represent easy tasks for recruitments in React.
 
 ## Available Scripts
 

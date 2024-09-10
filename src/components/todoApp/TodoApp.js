@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 const TodoApp = () => {
   const [inputText, setInputText] = useState("");
   const [tasks, setTasks] = useState([]);
   const [done, setDone] = useState(false);
   // console.log("done", done);
-  console.log(tasks);
 
   // const tasks = ["Todo", "Counter"];
-  // console.log("tasks", tasks);
+  console.log("tasks", tasks);
   const handleChange = (e) => {
     setInputText(e.target.value);
   };
@@ -18,20 +17,15 @@ const TodoApp = () => {
     setInputText("");
   };
 
-  const deleteTask = (task) => {
-    setTasks(tasks.filter((taskClicked) => taskClicked !== task));
+  const deleteTask = (index) => {
+    setTasks(tasks.filter((_, i) => i !== index));
   };
 
-  // const deleteTask = (index) => {
-  //   setTasks(tasks.filter((_, i) => i !== index)); // Usuwamy element po indeksie
-  // };
-
   const handleDone = (index) => {
-    setTasks(
-      tasks.map((task, i) =>
-        i === index ? { ...task, done: !task.done } : task
-      )
+    const change = tasks.map((task, i) =>
+      i === index ? { ...task, done: !task.done } : task
     );
+    setTasks(change);
   };
 
   return (
@@ -54,9 +48,9 @@ const TodoApp = () => {
           {tasks.map((task, index) => (
             <li key={index}>
               {task.done !== true ? (
-                <p onClick={() => deleteTask(task.name)}>{task.name}</p>
+                <p onClick={() => deleteTask(index)}>{task.name}</p>
               ) : (
-                <s onClick={() => deleteTask(task.name)}>{task.name}</s>
+                <s onClick={() => deleteTask(index)}>{task.name}</s>
               )}
               <input
                 type="checkbox"
